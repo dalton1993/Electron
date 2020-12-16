@@ -160,7 +160,7 @@ const CategoryShowPage = () => {
                                 <p>{ item.name }</p>
                                 <p>${ item.price }</p>
                                 {productReviews(item.reviews)}
-                                { item.description.length > 50 ? <p> {item.description.substring(0, 200)}...</p> : item.description }
+                                <div className = "d-none d-md-block">{ item.description.length > 50 ? <p>{item.description.substring(0, 200)}</p> : item.description }</div>
                             </div>
                         </Link>
                     </Col>

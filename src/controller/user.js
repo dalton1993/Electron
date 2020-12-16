@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt'); 
 const shortid = require('shortid');
 
-const JWT_SECRET = "ecom-secret";
+const {JWT_SECRET} = require('../../config/keys');
 
 exports.signup = (req, res) => {
     
