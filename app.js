@@ -47,10 +47,8 @@ if(process.env.NODE_ENV == "production"){
   })
 }
 
-env.config();
-
 app.listen(PORT, () => {
-  console.log(`Server Has Started on port ${process.env.PORT}!`);
+  console.log(`Server Has Started!`);
 }); 
 
 
