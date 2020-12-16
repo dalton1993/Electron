@@ -9,6 +9,12 @@ const cors = require('cors');
 const PORT = process.env.PORT || 2000;
 const { MONGOURI } = require("./config/keys");
  
+mongoose.connect(MONGOURI,{
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+  useCreateIndex:true
+})
+.then(console.log('connected to db!'));
 
 //routes
 const userRoutes = require('./src/routes/user.js');
@@ -19,12 +25,6 @@ const cartRoutes = require('./src/routes/cart.js');
 const initialDataRoutes = require('./src/routes/admin/initialData.js');
 const filterRoutes = require('./src/routes/filter.js');
 
-mongoose.connect(MONGOURI,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-    useCreateIndex:true
-})
-.then(console.log('connected to db!'));
 
 app.use(cors());
 app.use(bodyParser()); 
@@ -43,7 +43,7 @@ if(process.env.NODE_ENV == "production"){
   app.use(express.static('client_user/build'))
   const path = require('path')
   app.get('*', (req, res)=>{
-      res.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'))
+      res.sendFile(path.resolve(__dirname,'client_user', 'build', 'index.html'))
   })
 }
 
