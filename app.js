@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const PORT = process.env.PORT || 2000;
-const { MONGOURI } = require("./config/keys");
+const { MONGOURI } = require("./config/keys.js");
  
 mongoose.connect(MONGOURI,{
   useNewUrlParser:true,
