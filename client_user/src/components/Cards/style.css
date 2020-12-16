@@ -1,0 +1,38 @@
+.second-lvl-img {
+    height:17rem;
+    width:100%;
+    object-fit: contain;
+    padding:15px;
+}
+
+.third-lvl-card {
+    height:22rem;
+    object-fit: contain;
+    padding:15px;
+}
+
+.third-lvl-card-2 {
+    height:22rem;
+    object-fit: contain;
+    padding:15px;
+}
+
+.third-lvl-card-3 {
+    height:3rem;
+    object-fit: contain;
+    padding:15px;
+}
+
+.cara-img {
+    height:10rem;
+    object-fit: contain;
+    padding:15px;
+    background-color:lightcoral;
+}
+
+.fifth-lvl-img {
+    height:28rem;
+    width:100%;
+    object-fit: cover;
+    padding:15px;
+}

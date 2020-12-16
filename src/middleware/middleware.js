@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken'); 
-const JWT_SECRET = "ecom-secret";
+const {JWT_SECRET} = require('../../config/keys');
 
 exports.userMiddleware = (req, res, next) => {
     if(req.user.role !== 'user'){

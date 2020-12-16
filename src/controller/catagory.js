@@ -1,7 +1,7 @@
 const Catagory = require('../models/catagory.js');
 const slugify = require('slugify');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = "ecom-secret";
+const {JWT_SECRET} = require('../../config/keys');
 
 function createCatagory(catagories, parentId = null){
     const catagoryList = [];

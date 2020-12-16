@@ -5,7 +5,9 @@ const router = express.Router();
 const env = require('dotenv');
 const bodyParser = require('body-parser');
 const path = require('path');
-const cors = require('cors')
+const cors = require('cors');
+const PORT = process.env.PORT || 2000;
+const { MONGOURI } = require("./config/keys");
  
 
 //routes
@@ -17,7 +19,7 @@ const cartRoutes = require('./src/routes/cart.js');
 const initialDataRoutes = require('./src/routes/admin/initialData.js');
 const filterRoutes = require('./src/routes/filter.js');
 
-mongoose.connect("mongodb+srv://dalton:Ciz8xMrRduGBV7L@cluster0.agv5y.mongodb.net/ecom-database?retryWrites=true&w=majority",{
+mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
     useCreateIndex:true
@@ -37,11 +39,17 @@ app.use('/api', initialDataRoutes);
 app.use('/api', filterRoutes);  
 
 
-
+if(process.env.NODE_ENV == "production"){
+  app.use(express.static('client_user/build'))
+  const path = require('path')
+  app.get('*', (req, res)=>{
+      res.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'))
+  })
+}
 
 env.config();
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server Has Started on port ${process.env.PORT}!`);
 }); 
 

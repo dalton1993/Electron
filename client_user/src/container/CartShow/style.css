@@ -1,0 +1,12 @@
+
+
+.cart-picture-wrap img {
+    width:5rem;
+    height: 6rem;
+    object-fit: contain;
+}
+
+.cart-product-wrap {
+    border:1px solid rgb(78, 152, 237);
+    border-radius:5px;
+}
