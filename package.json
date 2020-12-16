@@ -24,7 +24,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client_user && npm run build --prefix client_user"
   },
   "author": "Dalton Heck",
   "license": "ISC"
