@@ -6,21 +6,66 @@ const multer = require('multer');
 const shortid = require('shortid');
 const slugify = require('slugify');  
 
-exports.createProduct = (req, res) => {
+exports.createProduct = async (req, res) => {
     //res.status(200).json({file: req.files, body: req.body });
     
 
     const { name, price, description, offer, catagory, quantity } = req.body;
     
-    let productPictures = []; 
+    /*let productPictures = []; 
 
     if(req.files.length > 0) {
         productPictures = req.files.map(file => {
+            console.log(file);
             return { img: file.filename }
         });
-    }
+    }*/
 
-    const product = new Product({
+    const uploader = async (path) => await cloudinary.uploads(path, 'Images');
+
+        const urls = []
+    
+        if (req.method === 'POST') {
+            const files = req.files;
+            for (const file of files) {
+                const { path } = file;
+                const newPath = await uploader(path)
+                urls.push(newPath)
+                fs.unlinkSync(path)
+            }
+
+                /*res.status(200).json({
+                    message: 'images uploaded successfully',
+                    data: urls
+                })*/
+
+            } 
+
+            
+            const product = new Product({
+                name: name,
+                slug: slugify(name),
+                price: price,
+                quantity: quantity, 
+                description: description,
+                offer: offer,
+                productPictures: urls,
+                catagory: catagory,
+                createdBy: req.user,
+            });
+
+            console.log(product);
+            product.save((error, product) => {
+                if(error) return res.status(400).json({message:error});
+                if(product){
+                    console.log(product)
+                    res.status(200).json({product, urls}); 
+                } 
+            }); 
+
+
+
+    /*const product = new Product({
 
         name: name,
         slug: slugify(name),
@@ -39,7 +84,7 @@ exports.createProduct = (req, res) => {
             console.log(product)
             res.status(200).json({product}); 
         } 
-    }); 
+    }); */
 }
 
 exports.getProducts = (req, res) => {
