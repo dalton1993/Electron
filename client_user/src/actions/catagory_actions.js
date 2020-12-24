@@ -8,7 +8,7 @@ export const getAllCatagories = () => {
             type: catagoryConstants.GET_ALL_CATAGORIES_REQUEST,
         })
 
-        const res = await axios.get('http://localhost:2000/api/catagory/getcatagory');
+        const res = await axios.get('/api/catagory/getcatagory');
         console.log(res);
 
         const { catagoryList } = res.data
