@@ -71,8 +71,8 @@ export default function SignUp() {
                                 <path fill-rule="evenodd" d="M8 1a2.5 2.5 0 0 0-2.5 2.5V4h5v-.5A2.5 2.5 0 0 0 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
                             </svg>
                         </div>
-                        <h1 style ={{color:'white', marginTop:'2rem'}}>MERN-Comm</h1>
-                        <p style={{color:'white', fontSize:'20px'}}>A full stack ecommerce website built on the MERN Stack</p>
+                        <h1 style ={{color:'white', marginTop:'2rem'}}>Electron</h1>
+                        <p style={{color:'white', fontSize:'20px'}}>A MERN stack ecommerce website</p>
                 </Col>
 
                 <Col lg = {6} md = {12} style = {{height:'100vh', width:'100%'}} className='d-flex justify-content-center align-items-center'>

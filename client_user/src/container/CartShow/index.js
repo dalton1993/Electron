@@ -125,7 +125,7 @@ export default function CartShowPage() {
                                         {item.product.productPictures.map(picture => {
                                             return(
                                                 
-                                                    <img src = {generatePublicURL(picture.img)}/>
+                                                    <img src = {picture.url}/>
                                                 
                                             )
                                         })}

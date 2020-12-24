@@ -11,7 +11,7 @@ const Carousel4 = (props) => {
             <Col lg= {12} sm = {12}>
                 <Carousel>
                     <Carousel.Item interval={2000}>
-                        <img
+                        <img style = {{zIndex:'-2'}}
                         className = 'main-slider-image-4'
                         src = 'https://cdn.pixabay.com/photo/2017/01/14/15/11/relaxing-1979674_960_720.jpg'
                         alt = '/'
@@ -22,7 +22,7 @@ const Carousel4 = (props) => {
                     </Carousel.Item>
 
                     <Carousel.Item interval={2000}>
-                        <img
+                        <img style = {{zIndex:'-2'}}
                         className = 'main-slider-image-4'
                         src = 'https://cdn.pixabay.com/photo/2016/12/01/18/17/mobile-phone-1875813_960_720.jpg'
                         alt = '/'
@@ -33,7 +33,7 @@ const Carousel4 = (props) => {
                     </Carousel.Item>
 
                     <Carousel.Item interval={2000}>
-                        <img
+                        <img style = {{zIndex:'-2'}}
                         className = 'main-slider-image-4'
                         src = 'https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg'
                         alt = '/'

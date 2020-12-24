@@ -28,6 +28,7 @@ const ProductShowPage = () => {
     const [ productDescription, setProductDescription ] = useState('');
     const [ productPrice, setProductPrice ] = useState(null);
     const [ picDisplay, setPicDisplay ] = useState('');
+    const [ showPic, setShowPic ] = useState('')
     const [ show, setShow ] = useState(false);
     const [ title, setTitle ] = useState(''); 
     const [ review, setReview ] = useState('');
@@ -55,11 +56,12 @@ const ProductShowPage = () => {
             const imageArr = [];
 
             for(let image of data.productPictures){
-                imageArr.push(image.img); 
+                imageArr.push(image); 
             }
             
             setProductImages(imageArr); 
-            setPicDisplay(imageArr[0]);
+            setPicDisplay(imageArr[0].url);
+            setShowPic(imageArr[0].url)
             //setProductImages(imageArr);
             //setProductState(res.data.product); 
         })
@@ -154,8 +156,8 @@ const ProductShowPage = () => {
                   
                     productImages.map( (item) => {
                     return(
-                        <div onClick={(e) => setPic(item)} className = 'productImgContainer d-flex align-items-center'>
-                            <img style = {{cursor:'pointer'}} src = {generatePublicURL(item)}/>
+                        <div onClick={(e) => setPic(item.url)} className = 'productImgContainer d-flex align-items-center'>
+                            <img style = {{cursor:'pointer'}} src = {item.url}/>
                         </div>
                         )
                     })
@@ -164,7 +166,7 @@ const ProductShowPage = () => {
 
                 <Col lg = {6} md = {8} sm ={10} xs = {10} className = 'd-flex justify-content-center'>
                     <div className = 'main-image-display'>
-                        {<img src = {generatePublicURL(picDisplay)} />}
+                        {<img src = {picDisplay} />}
                     </div>
                 </Col>
                
@@ -176,8 +178,8 @@ const ProductShowPage = () => {
                   
                             productImages.map( (item) => {
                             return(
-                                <div onClick={(e) => setPic(item)} className = 'productImgContainer d-flex align-items-center'>
-                                    <img style = {{cursor:'pointer'}} src = {generatePublicURL(item)}/>
+                                <div onClick={(e) => setPic(item.url)} className = 'productImgContainer d-flex align-items-center'>
+                                    <img style = {{cursor:'pointer'}} src = {item.url}/>
                                 </div>
                                 )
                             })
@@ -232,8 +234,6 @@ const ProductShowPage = () => {
             </Row>
 
             <Row style = {{
-                border:'1px solid #41b3a3', 
-                borderRadius:'20px',
                 margin:'0 5px 5rem 5px',
                 paddingTop:'10px'
                 }}>
@@ -242,7 +242,10 @@ const ProductShowPage = () => {
                        productReviews.map(item => {
                            return(
                             <>
-                            <Row>
+                            <Row style = {{
+                                borderTop:'2px solid #41b3a3',
+                                padding:'15px' 
+                                }}>
                                 <Col className = 'd-flex align-items-center'>
                                     <h4 style = {{margin:'0'}}>{item.reviewTitle}</h4>
                                     <p style = {{
@@ -327,8 +330,8 @@ const ProductShowPage = () => {
         >
             <Row style = {{marginBottom:'15px'}}>
                 <Col className = 'd-flex justify-content-center'>
-                    <div className = 'modal-image'>
-                        <img src = {generatePublicURL(productImages[0])}/>
+                    <div className = 'modal-image' style = {{marginBottom:'20px'}}>
+                        <img src = {showPic}/>
                     </div>
                 </Col>
             </Row>
@@ -350,7 +353,7 @@ const ProductShowPage = () => {
             </Row>
 
             <Row>
-                <Col>
+                <Col className = 'd-flex justify-content-end'>
                     <Button onClick = {()=>addToCart()}>Add Item</Button>
                 </Col>
             </Row>

@@ -155,12 +155,12 @@ const CategoryShowPage = () => {
 
                     <Col lg = {8} md = {10} sm = {10}>
                         <Link  to = {'/product/' + item._id } style = {{textDecoration:'none'}} className="d-flex flex-row card-wrap">
-                        <img className = 'category-image-show' src = {generatePublicURL(item.productPictures[0].img)}/>
+                        <img className = 'category-image-show' src = {item.productPictures[0].url}/>
                             <div>
                                 <p>{ item.name }</p>
                                 <p>${ item.price }</p>
                                 {productReviews(item.reviews)}
-                                <div className = "d-none d-md-block">{ item.description.length > 50 ? <p>{item.description.substring(0, 200)}</p> : item.description }</div>
+                                { item.description.length > 50 ? <p> {item.description.substring(0, 200)}...</p> : item.description }
                             </div>
                         </Link>
                     </Col>
