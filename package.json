@@ -2,14 +2,15 @@
   "name": "ecom_server",
   "version": "1.0.0",
   "engines": {
-    "node":"12.18.3",
-    "npm":"6.14.6"
+    "node": "12.18.3",
+    "npm": "6.14.6"
   },
   "description": "Ecommnerce server",
   "main": "app.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "cloudinary": "^1.23.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -24,7 +25,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client_user && npm run build --prefix client_user"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client_user && npm run build --prefix client_user"
   },
   "author": "Dalton Heck",
   "license": "ISC"
