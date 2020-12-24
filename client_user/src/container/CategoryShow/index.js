@@ -24,6 +24,7 @@ const CategoryShowPage = () => {
     useEffect( () => {
             axios.get('/categories/' + categoryid)
             .then(res =>{
+                console.log(res.data)
                 setPageProducts(res.data);
                 //set up data for price filtering
                 let initArr = [];
