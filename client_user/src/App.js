@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Home from './container/Home/index.js';
+import ScrollToTop from 'react-router-scroll-top'
 import { getAllCatagories }  from "./actions/catagory_actions.js";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, useHistory, withRouter } from 'react-router-dom';
@@ -46,6 +47,9 @@ const Routes = () => {
         }
     },[]);
 
+
+
+
         return(
             <Switch>
 
@@ -81,7 +85,9 @@ const App = () => {
     return(
         <div className = 'App'>
             <Router>
-                <Routes/>
+                <ScrollToTop>
+                    <Routes/>
+                </ScrollToTop>
             </Router>
         </div>
     )
